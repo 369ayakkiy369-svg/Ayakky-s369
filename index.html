@@ -287,6 +287,72 @@
       font-size: 17px;
     }
 
+    /* =========================
+   今日の雑学
+========================= */
+
+.trivia-section {
+  padding: 100px 25px;
+  text-align: center;
+  background:
+    radial-gradient(
+      circle at center,
+      #17103a,
+      #050510 70%
+    );
+}
+
+.trivia-section h2 {
+  font-family: Georgia, serif;
+  font-size: 40px;
+  letter-spacing: 5px;
+  margin-bottom: 35px;
+  color: #e5cf8b;
+}
+
+.trivia-box {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 30px;
+
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 20px;
+
+  background: rgba(255,255,255,0.05);
+
+  box-shadow:
+    0 0 30px rgba(120,80,255,0.18);
+}
+
+#trivia-text {
+  font-size: 20px;
+  color: #eeeeff;
+  margin-bottom: 30px;
+}
+
+#trivia-button {
+  padding: 13px 30px;
+
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 30px;
+
+  background: rgba(255,255,255,0.08);
+  color: white;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+#trivia-button:hover {
+  transform: translateY(-3px);
+
+  background: rgba(255,255,255,0.16);
+
+  box-shadow:
+    0 0 20px rgba(140,100,255,0.35);
+}
+
 
     /* =========================
        3つのテーマ
@@ -594,6 +660,23 @@
 
   </section>
 
+    <section class="trivia-section">
+
+    <h2>今日の雑学</h2>
+
+    <div class="trivia-box">
+
+      <p id="trivia-text">
+        ボタンを押して今日の雑学を見てみよう😳
+      </p>
+
+      <button id="trivia-button">
+        別の雑学を見る
+      </button>
+
+    </div>
+
+  </section>
 
 
   <!-- =====================
@@ -705,6 +788,23 @@
 
   </footer>
 
+  <script>
+const trivia = [
+  "タコの心臓は3つある",
+  "金星の1日は1年より長い",
+  "宇宙空間では音はほとんど伝わらない",
+  "光は1秒で地球を約7周半できる",
+  "人間の脳は体重の約2％ほどだが、多くのエネルギーを使う"
+];
+
+const triviaText = document.getElementById("trivia-text");
+const triviaButton = document.getElementById("trivia-button");
+
+triviaButton.addEventListener("click", function () {
+  const randomIndex = Math.floor(Math.random() * trivia.length);
+  triviaText.textContent = trivia[randomIndex];
+});
+</script>
 
 </body>
 
